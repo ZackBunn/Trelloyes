@@ -21,7 +21,7 @@ class App extends Component {
   handleDelete = (cardId) => {
     const {lists, allCards} = this.state.store;
 
-    const newList = list.map(list => {
+    const newList = lists.map(list => {
       list.cardIds = list.cardIds.filter(id => id !== cardId);
       return list;
     });
@@ -69,8 +69,8 @@ class App extends Component {
               id={list.id}
               header={list.header}
               cards={list.cardIds.map(id => store.allCards[id])}
-              onClickDelete={this.handleDeleteCard}
-              onClickAdd={this.handleAddCard} />
+              onClickDelete={this.handleDelete}
+              onClickAdd={this.handleAdd} />
           ))}
         </div>
       </main>
